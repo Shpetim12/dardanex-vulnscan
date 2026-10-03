@@ -1,8 +1,0 @@
-python-nmap>=0.7.1
-requests>=2.31.0
-rich>=13.7.0
-pytest>=8.0.0
-
-[dev]
-pytest-cov>=5.0.0
-ruff>=0.8.0
