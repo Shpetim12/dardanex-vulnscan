@@ -31,7 +31,10 @@ def build_report(data: dict[str, Any]) -> dict[str, Any]:
     """Add calculated summary fields while preserving scan evidence."""
     result = dict(data)
     result["generator"] = dict(GENERATOR)
-    result["summary"] = {"open_ports": len(data.get("ports", [])), "cves": severity_summary(data.get("cves", {}))}
+    result["summary"] = {
+        "open_ports": len(data.get("ports", [])),
+        "cves": severity_summary(data.get("cves", {})),
+    }
     return result
 
 
@@ -45,9 +48,19 @@ def text_report(data: dict[str, Any]) -> str:
         "",
     ]
     dns = data.get("dns", {})
-    lines += ["DNS", "-" * 3, f"IPv4: {', '.join(dns.get('ipv4', [])) or 'None'}", f"IPv6: {', '.join(dns.get('ipv6', [])) or 'None'}", "", "OPEN PORTS", "-" * 10]
+    lines += [
+        "DNS",
+        "-" * 3,
+        f"IPv4: {', '.join(dns.get('ipv4', [])) or 'None'}",
+        f"IPv6: {', '.join(dns.get('ipv6', [])) or 'None'}",
+        "",
+        "OPEN PORTS",
+        "-" * 10,
+    ]
     for port in data.get("ports", []):
-        detail = " ".join(filter(None, [port.get("service"), port.get("product"), port.get("version")]))
+        detail = " ".join(
+            filter(None, [port.get("service"), port.get("product"), port.get("version")])
+        )
         lines.append(
             f"{port.get('host', 'N/A')} {port.get('port', 'N/A')}/"
             f"{port.get('protocol', 'UNKNOWN')}  {detail or 'unknown'}"
@@ -92,7 +105,9 @@ def text_report(data: dict[str, Any]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def write_reports(data: dict[str, Any], output_dir: Path, output_format: str, stem: str) -> list[Path]:
+def write_reports(
+    data: dict[str, Any], output_dir: Path, output_format: str, stem: str
+) -> list[Path]:
     """Write selected formats and return their paths."""
     output_dir.mkdir(parents=True, exist_ok=True)
     safe_stem = re.sub(r"[^A-Za-z0-9._-]", "_", stem)

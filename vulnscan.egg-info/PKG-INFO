@@ -1,3 +1,33 @@
+Metadata-Version: 2.4
+Name: vulnscan
+Version: 1.0.0
+Summary: Permission-gated network vulnerability scanner for authorized testing and education.
+Author-email: Shpetim <info@dardanex.com>
+Maintainer-email: Dardanex <info@dardanex.com>
+License: MIT
+Project-URL: Homepage, https://github.com/Shpetim12/dardanex-vulnscan
+Project-URL: Repository, https://github.com/Shpetim12/dardanex-vulnscan
+Project-URL: Issues, https://github.com/Shpetim12/dardanex-vulnscan/issues
+Keywords: cybersecurity,nmap,vulnerability-scanner,cve,python
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Security
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: python-nmap>=0.7.1
+Requires-Dist: requests>=2.31.0
+Requires-Dist: rich>=13.7.0
+Requires-Dist: pytest>=8.0.0
+Provides-Extra: dev
+Requires-Dist: pytest-cov>=5.0.0; extra == "dev"
+Requires-Dist: ruff>=0.8.0; extra == "dev"
+Dynamic: license-file
+
 <p align="center">
   <img src="docs/banner.svg" alt="vulnscan — network vulnerability scanner banner" width="100%" />
 </p>

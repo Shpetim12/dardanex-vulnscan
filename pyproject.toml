@@ -28,6 +28,12 @@ dependencies = [
     "pytest>=8.0.0",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest-cov>=5.0.0",
+    "ruff>=0.8.0",
+]
+
 [project.urls]
 Homepage = "https://github.com/Shpetim12/dardanex-vulnscan"
 Repository = "https://github.com/Shpetim12/dardanex-vulnscan"
@@ -39,3 +45,10 @@ vulnscan = "vulnscan:main"
 [tool.setuptools]
 py-modules = ["vulnscan"]
 packages = ["scanner"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

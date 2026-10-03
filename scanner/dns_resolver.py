@@ -5,7 +5,8 @@ from __future__ import annotations
 import ipaddress
 import re
 import socket
-from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutureTimeoutError
+from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import TimeoutError as FutureTimeoutError
 from typing import Any
 
 _HOSTNAME = re.compile(

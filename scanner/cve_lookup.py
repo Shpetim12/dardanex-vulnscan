@@ -6,7 +6,6 @@ import json
 import logging
 import os
 import time
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -22,16 +21,37 @@ def parse_cves(payload: dict[str, Any], limit: int = 5) -> list[dict[str, Any]]:
     for item in payload.get("vulnerabilities", []):
         cve = item.get("cve", {})
         metrics = cve.get("metrics", {})
-        metric_candidates = [values[0] for key, values in metrics.items() if key.startswith("cvssMetric") and values]
-        metric = max(metric_candidates, key=lambda value: value.get("cvssData", {}).get("baseScore", -1), default={})
+        metric_candidates = [
+            values[0] for key, values in metrics.items() if key.startswith("cvssMetric") and values
+        ]
+        metric = max(
+            metric_candidates,
+            key=lambda value: value.get("cvssData", {}).get("baseScore", -1),
+            default={},
+        )
         cvss = metric.get("cvssData", {})
-        description = next((entry.get("value", "") for entry in cve.get("descriptions", []) if entry.get("lang") == "en"), "")
-        findings.append({
-            "id": cve.get("id", "unknown"), "description": description,
-            "score": cvss.get("baseScore"), "severity": cvss.get("baseSeverity", "UNKNOWN").upper(),
-            "published": cve.get("published", ""),
-        })
-    return sorted(findings, key=lambda c: c["score"] if isinstance(c["score"], (int, float)) else -1, reverse=True)[:limit]
+        description = next(
+            (
+                entry.get("value", "")
+                for entry in cve.get("descriptions", [])
+                if entry.get("lang") == "en"
+            ),
+            "",
+        )
+        findings.append(
+            {
+                "id": cve.get("id", "unknown"),
+                "description": description,
+                "score": cvss.get("baseScore"),
+                "severity": cvss.get("baseSeverity", "UNKNOWN").upper(),
+                "published": cve.get("published", ""),
+            }
+        )
+    return sorted(
+        findings,
+        key=lambda c: c["score"] if isinstance(c["score"], (int, float)) else -1,
+        reverse=True,
+    )[:limit]
 
 
 class CVELookup:
@@ -64,10 +84,17 @@ class CVELookup:
         headers = {"apiKey": self.api_key} if self.api_key else {}
         for attempt in range(3):
             try:
-                response = requests.get(NVD_URL, params={"keywordSearch": key, "resultsPerPage": min(limit, 20)}, headers=headers, timeout=self.timeout)
+                response = requests.get(
+                    NVD_URL,
+                    params={"keywordSearch": key, "resultsPerPage": min(limit, 20)},
+                    headers=headers,
+                    timeout=self.timeout,
+                )
                 self._last_request = time.monotonic()
                 if response.status_code == 429 or response.status_code >= 500:
-                    raise requests.HTTPError(f"NVD returned HTTP {response.status_code}", response=response)
+                    raise requests.HTTPError(
+                        f"NVD returned HTTP {response.status_code}", response=response
+                    )
                 response.raise_for_status()
                 results = parse_cves(response.json(), limit)
                 self.cache[key] = results
@@ -77,7 +104,7 @@ class CVELookup:
                 if attempt == 2:
                     LOGGER.warning("CVE lookup failed for %s: %s", key, exc)
                     return []
-                time.sleep(2 ** attempt)
+                time.sleep(2**attempt)
         return []
 
 

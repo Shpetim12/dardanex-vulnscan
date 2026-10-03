@@ -55,12 +55,16 @@ def scan_ports(
     try:
         import nmap  # type: ignore[import-not-found]
     except ImportError as exc:
-        raise NmapUnavailableError("python-nmap is not installed. Run: pip install -r requirements.txt") from exc
+        raise NmapUnavailableError(
+            "python-nmap is not installed. Run: pip install -r requirements.txt"
+        ) from exc
     nmap_binary = nmap_binary or find_nmap_binary()
     try:
         scanner = nmap.PortScanner(nmap_search_path=(nmap_binary,))
     except nmap.PortScannerError as exc:
-        raise NmapUnavailableError(f"Nmap could not be started from {nmap_binary}. {INSTALL_INSTRUCTIONS}") from exc
+        raise NmapUnavailableError(
+            f"Nmap could not be started from {nmap_binary}. {INSTALL_INSTRUCTIONS}"
+        ) from exc
     try:
         scanner.scan(hosts=target, arguments=SCAN_ARGUMENTS[scan_type], timeout=int(timeout))
     except nmap.PortScannerError as exc:
@@ -74,9 +78,15 @@ def scan_ports(
             for port, data in scanner[host][protocol].items():
                 if data.get("state") != "open":
                     continue
-                ports.append({
-                    "host": host, "protocol": protocol, "port": int(port),
-                    "service": data.get("name", "unknown"), "product": data.get("product", ""),
-                    "version": data.get("version", ""), "extrainfo": data.get("extrainfo", ""),
-                })
+                ports.append(
+                    {
+                        "host": host,
+                        "protocol": protocol,
+                        "port": int(port),
+                        "service": data.get("name", "unknown"),
+                        "product": data.get("product", ""),
+                        "version": data.get("version", ""),
+                        "extrainfo": data.get("extrainfo", ""),
+                    }
+                )
     return sorted(ports, key=lambda item: (item["host"], item["protocol"], item["port"]))
