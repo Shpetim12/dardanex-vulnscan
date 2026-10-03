@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" role="img" aria-labelledby="title description">
+  <title id="title">vulnscan</title>
+  <desc id="description">Network vulnerability scanner by Dardanex</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071525" />
+      <stop offset="1" stop-color="#0d3148" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#45d6a8" />
+      <stop offset="1" stop-color="#3ba6f7" />
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="640" fill="url(#background)" />
+  <path d="M0 516C265 430 405 682 686 524S1077 352 1280 421V640H0Z" fill="#0b2236" opacity=".8" />
+  <path d="M0 550C276 462 475 654 733 520S1096 389 1280 451" fill="none" stroke="#45d6a8" stroke-opacity=".25" stroke-width="3" />
+  <g transform="translate(120 163)">
+    <path d="M92 0 170 29v74c0 65-45 112-78 129-33-17-78-64-78-129V29Z" fill="url(#accent)" />
+    <path d="m57 83 23 23 48-52" fill="none" stroke="#071525" stroke-linecap="round" stroke-linejoin="round" stroke-width="14" />
+  </g>
+  <text x="330" y="253" fill="#f5fbff" font-family="Arial, Helvetica, sans-serif" font-size="90" font-weight="700">vulnscan</text>
+  <text x="334" y="319" fill="#a9c4d5" font-family="Arial, Helvetica, sans-serif" font-size="30">Network vulnerability scanner</text>
+  <rect x="334" y="365" width="398" height="44" rx="22" fill="#12364e" stroke="#45d6a8" stroke-opacity=".6" />
+  <text x="364" y="395" fill="#7fe6c4" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">AUTHORIZED TESTING • OPEN SOURCE</text>
+  <text x="120" y="564" fill="#6f9bb5" font-family="Arial, Helvetica, sans-serif" font-size="22">Dardanex  |  Cybersecurity</text>
+</svg>

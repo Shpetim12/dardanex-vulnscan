@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title description">
+  <title id="title">vulnscan demo placeholder</title>
+  <desc id="description">Placeholder for an authorized vulnscan terminal screenshot</desc>
+  <rect width="1280" height="720" rx="20" fill="#0b1220" />
+  <rect x="30" y="30" width="1220" height="660" rx="12" fill="#101c2d" stroke="#29445d" stroke-width="2" />
+  <circle cx="72" cy="72" r="12" fill="#f06b6b" />
+  <circle cx="108" cy="72" r="12" fill="#f6c453" />
+  <circle cx="144" cy="72" r="12" fill="#4bc987" />
+  <text x="72" y="150" fill="#7fe6c4" font-family="monospace" font-size="30">$ vulnscan scanme.nmap.org --scan quick --i-have-permission</text>
+  <text x="72" y="215" fill="#f3f7fb" font-family="monospace" font-size="27">vulnscan v1.0.0 - by Shpetim | Dardanex</text>
+  <text x="72" y="275" fill="#a9c4d5" font-family="monospace" font-size="27">[placeholder] Add a redacted screenshot of an authorized scan here.</text>
+  <text x="72" y="335" fill="#a9c4d5" font-family="monospace" font-size="27">Do not include API keys, credentials, or sensitive target details.</text>
+  <rect x="72" y="405" width="1136" height="2" fill="#29445d" />
+  <text x="72" y="485" fill="#7fe6c4" font-family="monospace" font-size="26">Scan complete. Reports written successfully.</text>
+</svg>

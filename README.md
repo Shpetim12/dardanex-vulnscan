@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/banner.png" alt="vulnscan — network vulnerability scanner banner" width="100%" />
+  <img src="docs/banner.svg" alt="vulnscan — network vulnerability scanner banner" width="100%" />
 </p>
 
 <h1 align="center">vulnscan</h1>
@@ -41,7 +41,7 @@ vulnscan brings foundational reconnaissance, service discovery, CVE research, an
 ## Demo
 
 <p align="center">
-  <img src="docs/demo.png" alt="Example vulnscan terminal scan output" width="100%" />
+  <img src="docs/demo.svg" alt="Example vulnscan terminal scan output placeholder" width="100%" />
 </p>
 
 <details>
