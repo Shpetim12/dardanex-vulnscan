@@ -29,9 +29,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://www.dardanex.com"
-Organization = "https://www.dardanex.com"
-Source = "https://github.com/Shpetim12"
+Homepage = "https://github.com/Shpetim12/dardanex-vulnscan"
+Repository = "https://github.com/Shpetim12/dardanex-vulnscan"
+Issues = "https://github.com/Shpetim12/dardanex-vulnscan/issues"
 
 [project.scripts]
 vulnscan = "vulnscan:main"
