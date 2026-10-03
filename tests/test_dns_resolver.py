@@ -1,6 +1,7 @@
 """vulnscan - Network vulnerability scanner | Copyright (c) 2026 Shpetim / Dardanex | MIT License"""
 
 import socket
+from concurrent.futures import TimeoutError as FutureTimeoutError
 
 import pytest
 
@@ -53,7 +54,7 @@ def test_resolve_target_handles_lookup_failure(monkeypatch) -> None:
 def test_resolve_target_handles_timeout(monkeypatch) -> None:
     class TimedOutFuture:
         def result(self, timeout):
-            raise TimeoutError
+            raise FutureTimeoutError
 
         def cancel(self):
             return True
