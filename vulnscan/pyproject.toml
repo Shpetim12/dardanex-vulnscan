@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vulnscan"
+version = "1.0.0"
+description = "Permission-gated network vulnerability scanner for authorized testing and education."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Shpetim", email = "info@dardanex.com"}]
+maintainers = [{name = "Dardanex", email = "info@dardanex.com"}]
+keywords = ["cybersecurity", "nmap", "vulnerability-scanner", "cve", "python"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+]
+dependencies = [
+    "python-nmap>=0.7.1",
+    "requests>=2.31.0",
+    "rich>=13.7.0",
+    "pytest>=8.0.0",
+]
+
+[project.urls]
+Homepage = "https://www.dardanex.com"
+Organization = "https://www.dardanex.com"
+Source = "https://github.com/Shpetim12"
+
+[project.scripts]
+vulnscan = "vulnscan:main"
+
+[tool.setuptools]
+py-modules = ["vulnscan"]
+packages = ["scanner"]
