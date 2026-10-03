@@ -31,7 +31,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "pytest-cov>=7.1.0",
-    "ruff>=0.8.0",
+    "ruff>=0.16.9",
 ]
 
 [project.urls]
