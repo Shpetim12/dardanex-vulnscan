@@ -24,7 +24,7 @@ classifiers = [
 dependencies = [
     "python-nmap>=0.7.1",
     "requests>=2.34.2",
-    "rich>=13.7.0",
+    "rich>=15.0.0",
     "pytest>=8.0.0",
 ]
 
