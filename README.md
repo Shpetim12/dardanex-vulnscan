@@ -41,8 +41,14 @@ vulnscan brings foundational reconnaissance, service discovery, CVE research, an
 ## Demo
 
 <p align="center">
-  <img src="docs/demo.png" alt="vulnscan scanning scanme.nmap.org" width="100%" />
+  <img src="docs/demo.svg" alt="vulnscan terminal workflow preview" width="100%" />
 </p>
+
+<p align="center">
+  <img src="docs/real-test.png" alt="vulnscan scanning scanme.nmap.org" width="100%" />
+</p>
+
+The first image is a polished terminal workflow preview. The second is the real local test capture.
 
 <details>
 <summary><strong>View sample TXT report</strong></summary>
